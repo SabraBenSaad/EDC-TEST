@@ -1,0 +1,4 @@
+{
+  "counterPartyAddress": "http://edc-controlplane-a:8188/protocol",
+  "protocol": "dataspace-protocol-http"
+}

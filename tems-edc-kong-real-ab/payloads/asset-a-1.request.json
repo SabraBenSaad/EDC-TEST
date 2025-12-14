@@ -1,0 +1,19 @@
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "edc:AssetCreateRequest",
+  "asset": {
+    "@id": "asset-a-1",
+    "properties": {
+      "name": "Demo Asset A",
+      "contenttype": "text/plain"
+    }
+  },
+  "dataAddress": {
+    "type": "HttpData",
+    "properties": {
+      "baseUrl": "https://raw.githubusercontent.com/eclipse-edc/Connector/main/README.md"
+    }
+  }
+}

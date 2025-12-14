@@ -1,0 +1,190 @@
+{
+  "v": 10,
+  "id": "cmht87o4y0roufv1kc4r7lhme",
+  "name": "TEMS - Trials5 - ISAN",
+  "folders": [
+    {
+      "v": 10,
+      "id": "cmht87o5g0rovfv1ktujgety9",
+      "name": "Central Governance",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Obtain Keycloak Token",
+          "method": "POST",
+          "endpoint": "https://governance.tems-dataspace.eu/auth/realms/common/protocol/openid-connect/token",
+          "params": [],
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/x-www-form-urlencoded",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "preRequestScript": "",
+          "testScript": "pw.env.set(\"CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN\", pw.response.body[\"access_token\"]);",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/x-www-form-urlencoded",
+            "body": "grant_type: password\nclient_id: insert-client-id-here\nclient_secret: insert-client-secret-here\nscope: openid\nusername: insert-username-here\npassword: insert-password-here"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_d885e5d5-e65a-491b-8e4d-9266c3f58ffd"
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdq3yy_adedf7f7-95e4-4df7-a13b-e5bb60f29b4d"
+    },
+    {
+      "v": 10,
+      "id": "cmht87o690royfv1kkjs8jxzd",
+      "name": "API Gateway",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Issue API Gateway Token",
+          "method": "POST",
+          "endpoint": "https://prod-trial5-isan-provider.tems-dataspace.eu/apigateway/temsapigateway/token",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"agreementId\": \"insert_agreementId_here\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_3206860f-57c1-4e6d-8909-f1d5be8b0e1e"
+        },
+        {
+          "v": "16",
+          "name": "Validate API Gateway Token",
+          "method": "POST",
+          "endpoint": "https://prod-trial5-isan-provider.tems-dataspace.eu/apigateway/temsapigateway/validate",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"apiGatewayToken\": \"insert_apiGatewayToken_here\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_b2eaf935-eb83-4d84-acbc-987074c60334"
+        }
+      ],
+      "auth": {
+        "authType": "bearer",
+        "token": "<<CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN>>",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdq3yy_ac83e262-48c3-4467-b945-45db1cc11698"
+    },
+    {
+      "v": 10,
+      "id": "cmhtb809a0s0qfv1k21rudrhe",
+      "name": "Endpoint test",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Api endpoint test",
+          "method": "GET",
+          "endpoint": "https://prod-trial5-isan-provider.tems-dataspace.eu/apigateway",
+          "params": [
+            {
+              "key": "X-API-Gateway-Token",
+              "value": "insert_apiGatewayToken_here",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mhtb6b7w_7ecd73fe-c655-4865-9891-f57de5747089"
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdq3yy_1d47aa9f-bf13-405d-add7-fba7c94ad336"
+    }
+  ],
+  "requests": [],
+  "auth": {
+    "authType": "inherit",
+    "authActive": true
+  },
+  "headers": [],
+  "variables": [
+    {
+      "key": "assetId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "offeringId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "policyId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "expirationDateTime",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    }
+  ],
+  "_ref_id": "coll_mhtdq3yy_27da20c3-c7f5-4081-878d-ae80825272b7"
+}

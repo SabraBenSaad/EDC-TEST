@@ -1,0 +1,93 @@
+name: tems-participant-b
+
+services:
+  # API GATEWAY
+  api-gateway:
+    image: ghcr.io/tems-git-hub/api-gateway:0.0.1
+    depends_on:
+      - policy-engine
+      - edc-connector
+    environment:
+      - KONG_DATABASE=off
+      - KONG_DECLARATIVE_CONFIG=/usr/local/kong/declarative/kong.yml
+      - KONG_PLUGINS=bundled,tems-api-gateway-plugin
+      - KONG_LOG_LEVEL=info
+    volumes:
+      - ./participant-b/kong.yml:/usr/local/kong/declarative/kong.yml:ro
+    # ports:
+    #   - "8000:8000"
+
+  # Mocked Policy Engine
+  policy-engine:
+    image: ghcr.io/tems-git-hub/mocked-policy-engine:0.0.1
+    restart: unless-stopped
+    environment:
+      EDC_API_KEY: 123456
+      EDC_MANAGEMENT_ENDPOINT: http://edc-connector:8193
+      KEYCLOAK_URL: <ADD_GOVERNANCE_KEYCLOAK_URL_HERE>
+      KEYCLOAK_REALM: <ADD_GOVERNANCE_KEYCLOAK_REALM_HERE>
+      KEYCLOAK_CLIENT_ID: <ADD_GOVERNANCE_KEYCLOAK_CLIENT_ID_HERE>
+      KEYCLOAK_CLIENT_SECRET: <ADD_GOVERNANCE_KEYCLOAK_CLIENT_SECRET_HERE>
+      KEYCLOAK_VERIFY: false
+
+  edc-connector:
+    image: ghcr.io/tems-git-hub/tems-edc-connector:0.0.1
+    #ports:
+      #- "9191:9191"  # Public API
+      #- "9192:9192"  # Control API
+      #- "9193:9193"  # Management API
+      #- "9194:9194"  # Protocol API
+      #- "9291:9291"  # Public Data API
+    volumes:
+      - ./participant-b:/app/conf:ro
+    environment:
+      - EDC_FS_CONFIG=/app/conf/configuration.properties
+      - EDC_VAULT=/app/conf/vault.properties
+    # Required if both EDCs are on the same machine to communicate with each other
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: sh -c "exec java -Dedc.fs.config=/app/conf/configuration.properties -jar app.jar"
+    depends_on:
+      - policy-engine
+
+  petstore:
+    image: swaggerapi/petstore:1.0.7
+    environment:
+      SWAGGER_HOST: http://petstore.docs
+      SWAGGER_URL: http://petstore:8080
+      SWAGGER_BASE_PATH: /v2
+
+  # NGINX DEV (default - HTTP)
+  nginx:
+    image: nginx:1.29.3-alpine
+    volumes:
+      - ./participant-b/nginx-dev.conf:/etc/nginx/conf.d/default.conf:ro
+    ports:
+      - "8081:8080"
+    depends_on:
+      - api-gateway
+      - edc-connector
+
+  # NGINX PROD (HTTPS + Certbot)
+  nginx-prod:
+    profiles: ["prod"]
+    image: nginx:1.29.3-alpine
+    volumes:
+      - ./participant-b/nginx-prod.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./certbot/conf:/etc/letsencrypt:ro
+      - ./certbot/www:/var/www/certbot:ro
+    ports:
+      - "80:80"
+      - "443:443"
+    depends_on:
+      - api-gateway
+      - edc-connector
+    command: "/bin/sh -c 'while :; do sleep 6h & wait $${!}; nginx -s reload; done & nginx -g \"daemon off;\"'"
+
+  certbot:
+    profiles: ["prod"]
+    image: certbot/certbot:v5.1.0
+    volumes:
+      - ./certbot/conf:/etc/letsencrypt
+      - ./certbot/www:/var/www/certbot
+    entrypoint: "/bin/sh -c 'trap exit TERM; while :; do certbot renew; sleep 12h & wait $${!}; done;'"

@@ -1,0 +1,36 @@
+edc-controlplane-b-1  | [0;32mINFO 2025-12-14T16:37:20.61881481 Booting EDC runtime[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:21.537813036 Configuration file does not exist: /app/configuration.properties. Ignoring.[0m
+edc-controlplane-b-1  | SLF4J(W): No SLF4J providers were found.
+edc-controlplane-b-1  | SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+edc-controlplane-b-1  | SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+edc-controlplane-b-1  | [0;32mINFO 2025-12-14T16:37:28.917290124 HTTPS enforcement it not enabled, please enable it in a production environment[0m
+edc-controlplane-b-1  | [0;32mINFO 2025-12-14T16:37:31.245678958 HTTPS enforcement it not enabled, please enable it in a production environment[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:31.271853604 Config value: no setting found for 'edc.hostname', falling back to default value 'localhost'[0m
+edc-controlplane-b-1  | [0;32mINFO 2025-12-14T16:37:34.15078893 Kafka AdminClient authentication not fully configured. Using basic connection properties only.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:35.798076627 Error caching context URL 'https://w3id.org/dspace/2024/1/context.json' for URI 'jar:file:/app/runtime.jar!/document/dspace.jsonld'. Subsequent attempts to expand this context URL may fail.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:37.302401887 TargetNode file is not configured ('tx.edc.catalog.node.list.file'). Federated Catalog Crawler will be inactive.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:39.12400355 No TokenDecorator was registered. The 'scope' field of outgoing protocol messages will be empty[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:39.922967029 Datasource configuration value 'edc.datasource.default.url' not found in vault, will fall back to Config. Please consider putting datasource configuration into the vault.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:39.935168293 Datasource configuration value 'edc.datasource.default.user' not found in vault, will fall back to Config. Please consider putting datasource configuration into the vault.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:39.956726804 Datasource configuration value 'edc.datasource.default.password' not found in vault, will fall back to Config. Please consider putting datasource configuration into the vault.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:40.161263163 A service of the type org.eclipse.edc.token.spi.TokenValidationService was already registered and has now been replaced with a TokenValidationServiceImpl instance.[0m
+edc-controlplane-b-1  | [0;33mWARNING 2025-12-14T16:37:40.187577554 [Delegated API Authentication] The 'edc.api.auth.dac.key.url' setting was not provided, so the DelegatedAuthenticationService will NOT be registered. In this case, the TokenBasedAuthenticationService usually acts as fallback.[0m
+edc-controlplane-b-1  | [0;31mSEVERE 2025-12-14T16:37:40.390630132 Error booting runtime: A binding for port 8181 already exists[0m
+edc-controlplane-b-1  | [0;31mjava.lang.IllegalArgumentException: A binding for port 8181 already exists
+edc-controlplane-b-1  | 	at org.eclipse.edc.web.jetty.PortMappingRegistryImpl.register(PortMappingRegistryImpl.java:35)
+edc-controlplane-b-1  | 	at org.eclipse.edc.connector.api.management.configuration.ManagementApiConfigurationExtension.initialize(ManagementApiConfigurationExtension.java:123)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ExtensionLifecycleManager.bootServiceExtensions(ExtensionLifecycleManager.java:54)
+edc-controlplane-b-1  | Exception in thread "main" org.eclipse.edc.spi.EdcException: java.lang.IllegalArgumentException: A binding for port 8181 already exists
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.onError(BaseRuntime.java:152)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.boot(BaseRuntime.java:116)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.main(BaseRuntime.java:79)
+edc-controlplane-b-1  | Caused by: java.lang.IllegalArgumentException: A binding for port 8181 already exists
+edc-controlplane-b-1  | 	at org.eclipse.edc.web.jetty.PortMappingRegistryImpl.register(PortMappingRegistryImpl.java:35)
+edc-controlplane-b-1  | 	at org.eclipse.edc.connector.api.management.configuration.ManagementApiConfigurationExtension.initialize(ManagementApiConfigurationExtension.java:123)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.bootExtensions(BaseRuntime.java:162)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.boot(BaseRuntime.java:101)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.main(BaseRuntime.java:79)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ExtensionLifecycleManager.bootServiceExtensions(ExtensionLifecycleManager.java:54)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.bootExtensions(BaseRuntime.java:162)
+edc-controlplane-b-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.boot(BaseRuntime.java:101)
+edc-controlplane-b-1  | 	... 1 more

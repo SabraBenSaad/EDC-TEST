@@ -1,0 +1,190 @@
+{
+  "v": 10,
+  "id": "cmht88yc60rpafv1kcscfq0ia",
+  "name": "TEMS - Trials5 - FRANCE_TV_STUDIO",
+  "folders": [
+    {
+      "v": 10,
+      "id": "cmht88ycm0rpbfv1k3m8gyw8s",
+      "name": "Central Governance",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Obtain Keycloak Token",
+          "method": "POST",
+          "endpoint": "https://governance.tems-dataspace.eu/auth/realms/common/protocol/openid-connect/token",
+          "params": [],
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/x-www-form-urlencoded",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "preRequestScript": "",
+          "testScript": "pw.env.set(\"CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN\", pw.response.body[\"access_token\"]);",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/x-www-form-urlencoded",
+            "body": "grant_type: password\nclient_id: insert-client-id-here\nclient_secret: insert-client-secret-here\nscope: openid\nusername: insert-username-here\npassword: insert-password-here"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_d885e5d5-e65a-491b-8e4d-9266c3f58ffd"
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdpn0r_2b1b18b3-2bb8-4f50-a616-aa1bc4a60ff8"
+    },
+    {
+      "v": 10,
+      "id": "cmht88yde0rpefv1kdioi2urq",
+      "name": "API Gateway",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Issue API Gateway Token",
+          "method": "POST",
+          "endpoint": "https://prod-trial5-france-tv-studio-consumer-provider.tems-dataspace.eu/apigateway/temsapigateway/token",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"agreementId\": \"insert_agreementId_here\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_3206860f-57c1-4e6d-8909-f1d5be8b0e1e"
+        },
+        {
+          "v": "16",
+          "name": "Validate API Gateway Token",
+          "method": "POST",
+          "endpoint": "https://prod-trial5-france-tv-studio-consumer-provider.tems-dataspace.eu/apigateway/temsapigateway/validate",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"apiGatewayToken\": \"insert_apiGatewayToken_here\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_b2eaf935-eb83-4d84-acbc-987074c60334"
+        }
+      ],
+      "auth": {
+        "authType": "bearer",
+        "token": "<<CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN>>",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdpn0r_b4af0bd6-af45-4e63-a3fb-41edc550f4e5"
+    },
+    {
+      "v": 10,
+      "id": "cmhtc0wcf0slkfv1kafn66en6",
+      "name": "Endpoint test",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Api endpoint test",
+          "method": "GET",
+          "endpoint": "https://prod-trial5-france-tv-studio-consumer-provider.tems-dataspace.eu/apigateway",
+          "params": [],
+          "headers": [
+            {
+              "key": "X-API-Gateway-Token",
+              "value": "insert_apiGatewayToken_here",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mhtc0j9v_46f9bbbe-55bc-4d35-b258-6c2885941fba"
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdpn0r_77827b2b-2752-4975-be0c-3f4a82c8a96a"
+    }
+  ],
+  "requests": [],
+  "auth": {
+    "authType": "inherit",
+    "authActive": true
+  },
+  "headers": [],
+  "variables": [
+    {
+      "key": "assetId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "offeringId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "policyId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "expirationDateTime",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    }
+  ],
+  "_ref_id": "coll_mhtdpn0r_f3860440-a766-4403-a009-cbe368962771"
+}

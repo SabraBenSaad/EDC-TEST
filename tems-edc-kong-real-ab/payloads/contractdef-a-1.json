@@ -1,0 +1,12 @@
+{
+  "@id": "cd-a-1",
+  "accessPolicyId": "policy-a-allow",
+  "contractPolicyId": "policy-a-allow",
+  "assetsSelector": [
+    {
+      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+      "operator": "=",
+      "operandRight": "asset-a-1"
+    }
+  ]
+}

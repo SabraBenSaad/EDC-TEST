@@ -1,0 +1,45 @@
+_format_version: "3.0"
+_transform: true
+
+services:
+  # TEMS control endpoints (token/validate) -> mocked policy engine
+  - name: tems-api-gateway-control
+    url: http://policy-engine:8001
+    routes:
+      - name: tems-token
+        paths: ["/temsapigateway/token"]
+        methods: ["POST"]
+      - name: tems-validate
+        paths: ["/temsapigateway/validate"]
+        methods: ["POST"]
+
+  # EDC Management API (proxifié)
+  - name: edc-management
+    url: http://edc-a:9193
+    routes:
+      - name: management
+        paths: ["/management"]
+        strip_path: false
+    plugins:
+      # Ajoute la clé d'API EDC automatiquement
+      - name: request-transformer
+        config:
+          add:
+            headers:
+              - X-Api-Key:123456
+
+  # EDC Protocol/DSP (proxifié)
+  - name: edc-protocol
+    url: http://edc-a:9194
+    routes:
+      - name: protocol
+        paths: ["/protocol"]
+        strip_path: false
+
+  # Observability locale
+  - name: observability
+    url: http://observability-a:9100
+    routes:
+      - name: obs
+        paths: ["/metrics","/health","/ready","/observability"]
+        strip_path: false

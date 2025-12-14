@@ -1,0 +1,54 @@
+_format_version: "3.0"
+_transform: true
+services:
+    # Needed to allow the /temsapigateway/* endpoints to work.
+    # The calls under /temsapigateway/* path will never reach the Policy Engine.
+    - name: tems-api-gateway-control
+      url: http://policy-engine:8001
+      routes:
+        - name: tems-api-gateway-token-route
+          methods:
+            - POST
+          paths:
+            - /temsapigateway/token
+        - name: tems-api-gateway-validate-route
+          methods:
+            - POST
+          paths:
+            - /temsapigateway/validate
+    # Here you can declare all the API endpoints you want; they will be secured by the token
+    # signed by the API Gateway. In this case we are using the Petstore Docker image to test the
+    # Swagger Petstore API using the API Gateway JWT (instead of the Petstore api_key).
+    - name: petstore
+      url: http://petstore:8080
+      routes:
+        - name: petstore-route
+          paths:
+            - /
+          # strip_path: true
+          methods:
+            - GET
+            - POST
+            - PUT
+            - DELETE
+      plugins:
+        - name: request-transformer
+          config:
+            add:
+                headers:
+                    - api_key:special-key
+plugins:
+    - name: tems-api-gateway-plugin
+      config:
+        # Here you need to configure the mocked policy engine endpoint that will check the agreement.
+        policy_engine_url: http://policy-engine:8001/agreement-check/%s
+        policy_engine_method: GET
+        policy_engine_timeout_ms: 5000
+        policy_engine_additional_headers:
+            X-Api-Key: "123456"
+        # Here you need to configure the settings regarding the issuance of the API Gateway token
+        # to use the services declared above.
+        token_signing_secret: tems-api-gateway-secret
+        token_ttl_seconds: 3600
+        token_issuer: tems-api-gateway
+        gateway_token_header: X-API-Gateway-Token

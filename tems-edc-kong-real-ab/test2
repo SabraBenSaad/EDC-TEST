@@ -1,0 +1,120 @@
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.FlywayExecutor execute
+edc-controlplane-a-1  | INFO: Database: jdbc:postgresql://postgres-a:5432/edc (PostgreSQL 16.11)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+edc-controlplane-a-1  | INFO: Creating Schema History table "public"."flyway_schema_history_federatedcatalog" with baseline ...
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbBaseline baseline
+edc-controlplane-a-1  | INFO: Successfully baselined schema with version: 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbValidate validate
+edc-controlplane-a-1  | INFO: Successfully validated 2 migrations (execution time 00:00.006s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+edc-controlplane-a-1  | INFO: Current version of schema "public": 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.1 - Init FederatedCatalogCache Database Schema"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+edc-controlplane-a-1  | INFO: Successfully applied 1 migration to schema "public", now at version v0.0.1 (execution time 00:00.014s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.FlywayExecutor execute
+edc-controlplane-a-1  | INFO: Database: jdbc:postgresql://postgres-a:5432/edc (PostgreSQL 16.11)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+edc-controlplane-a-1  | INFO: Creating Schema History table "public"."flyway_schema_history_policy-monitor" with baseline ...
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbBaseline baseline
+edc-controlplane-a-1  | INFO: Successfully baselined schema with version: 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbValidate validate
+edc-controlplane-a-1  | INFO: Successfully validated 3 migrations (execution time 00:00.015s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+edc-controlplane-a-1  | INFO: Current version of schema "public": 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.1 - Init PolicyMonitor Database Schema"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor printWarnings
+edc-controlplane-a-1  | WARNING: DB: relation "edc_lease" already exists, skipping (SQL State: 42P07 - Error Code: 0)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.2 - Alter PolicyMonitor CreateStateIndex"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+edc-controlplane-a-1  | INFO: Successfully applied 2 migrations to schema "public", now at version v0.0.2 (execution time 00:00.049s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.FlywayExecutor execute
+edc-controlplane-a-1  | INFO: Database: jdbc:postgresql://postgres-a:5432/edc (PostgreSQL 16.11)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+edc-controlplane-a-1  | INFO: Creating Schema History table "public"."flyway_schema_history_policy" with baseline ...
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbBaseline baseline
+edc-controlplane-a-1  | INFO: Successfully baselined schema with version: 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbValidate validate
+edc-controlplane-a-1  | INFO: Successfully validated 7 migrations (execution time 00:00.018s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+edc-controlplane-a-1  | INFO: Current version of schema "public": 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.1 - Init Policy Database Schema"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.2 - Milestone5 Update"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:42 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.3 - Snapshot 20220815 Update"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.4 - Add Private Properties"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.5 - Add Profiles"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.6 - Avoid null profiles"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+edc-controlplane-a-1  | INFO: Successfully applied 6 migrations to schema "public", now at version v0.0.6 (execution time 00:00.150s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.FlywayExecutor execute
+edc-controlplane-a-1  | INFO: Database: jdbc:postgresql://postgres-a:5432/edc (PostgreSQL 16.11)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.schemahistory.JdbcTableSchemaHistory create
+edc-controlplane-a-1  | INFO: Creating Schema History table "public"."flyway_schema_history_transferprocess" with baseline ...
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbBaseline baseline
+edc-controlplane-a-1  | INFO: Successfully baselined schema with version: 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbValidate validate
+edc-controlplane-a-1  | INFO: Successfully validated 17 migrations (execution time 00:00.050s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate migrateGroup
+edc-controlplane-a-1  | INFO: Current version of schema "public": 0.0.0
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.1 - Init TransferProcess Database Schema"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor printWarnings
+edc-controlplane-a-1  | WARNING: DB: relation "edc_lease" already exists, skipping (SQL State: 42P07 - Error Code: 0)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor printWarnings
+edc-controlplane-a-1  | WARNING: DB: relation "lease_lease_id_uindex" already exists, skipping (SQL State: 42P07 - Error Code: 0)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor printWarnings
+edc-controlplane-a-1  | WARNING: DB: relation "lease_lease_id_uindex" already exists, skipping (SQL State: 42P07 - Error Code: 0)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.2 - Alter TransferProcess Add DataAddress"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.3 - Alter Rename Id"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.4 - Milestone5 Update"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.5 - Snapshot 20220815 Update"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.6 - Snapshot 20230109 Update"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.7 - Default Value For Properties"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.8 - Alter TransferProcess Add Callbacks"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.9 - Alter TransferProcess Remove Transfertype"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.sqlscript.DefaultSqlScriptExecutor printWarnings
+edc-controlplane-a-1  | INFO: DB: column "transfer_type" of relation "edc_transfer_process" does not exist, skipping
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.10 - Alter TransferProcess Rename transfer process column"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.11 - Alter TransferProcess AddPendingField"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.12 - Alter TransferProcess AddTransferType"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.13 - Alter TransferProcess AddProtocolMessages"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.14 - Alter TransferProcess AddDataPlaneId"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.15 - Alter TransferProcess InlineDataAddress"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate doMigrateGroup
+edc-controlplane-a-1  | INFO: Migrating schema "public" to version "0.0.16 - Alter TransferProcess CreateStateIndex"
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM org.flywaydb.core.internal.command.DbMigrate logSummary
+edc-controlplane-a-1  | INFO: Successfully applied 16 migrations to schema "public", now at version v0.0.16 (execution time 00:00.222s)
+edc-controlplane-a-1  | Dec 14, 2025 6:24:43 PM io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics unwrapThreadPoolExecutor
+edc-controlplane-a-1  | INFO: Cannot unwrap ThreadPoolExecutor for monitoring from java.util.concurrent.Executors$DelegatedScheduledExecutorService due to java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.concurrent.ScheduledExecutorService java.util.concurrent.Executors$DelegatedScheduledExecutorService.e accessible: module java.base does not "opens java.util.concurrent" to unnamed module @72b6cbcc
+edc-controlplane-a-1  | Dec 14, 2025 6:24:47 PM io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics unwrapThreadPoolExecutor
+edc-controlplane-a-1  | INFO: Cannot unwrap ThreadPoolExecutor for monitoring from java.util.concurrent.Executors$DelegatedScheduledExecutorService due to java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.concurrent.ScheduledExecutorService java.util.concurrent.Executors$DelegatedScheduledExecutorService.e accessible: module java.base does not "opens java.util.concurrent" to unnamed module @72b6cbcc
+edc-controlplane-a-1  | Dec 14, 2025 6:24:47 PM io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics unwrapThreadPoolExecutor
+edc-controlplane-a-1  | INFO: Cannot unwrap ThreadPoolExecutor for monitoring from java.util.concurrent.Executors$DelegatedScheduledExecutorService due to java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.concurrent.ScheduledExecutorService java.util.concurrent.Executors$DelegatedScheduledExecutorService.e accessible: module java.base does not "opens java.util.concurrent" to unnamed module @72b6cbcc
+edc-controlplane-a-1  | Dec 14, 2025 6:24:47 PM io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics unwrapThreadPoolExecutor
+edc-controlplane-a-1  | INFO: Cannot unwrap ThreadPoolExecutor for monitoring from java.util.concurrent.Executors$DelegatedScheduledExecutorService due to java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.concurrent.ScheduledExecutorService java.util.concurrent.Executors$DelegatedScheduledExecutorService.e accessible: module java.base does not "opens java.util.concurrent" to unnamed module @72b6cbcc
+edc-controlplane-a-1  | Dec 14, 2025 6:24:47 PM io.micrometer.core.instrument.binder.jvm.ExecutorServiceMetrics unwrapThreadPoolExecutor
+edc-controlplane-a-1  | INFO: Cannot unwrap ThreadPoolExecutor for monitoring from java.util.concurrent.Executors$DelegatedScheduledExecutorService due to java.lang.reflect.InaccessibleObjectException: Unable to make field private final java.util.concurrent.ScheduledExecutorService java.util.concurrent.Executors$DelegatedScheduledExecutorService.e accessible: module java.base does not "opens java.util.concurrent" to unnamed module @72b6cbcc
+edc-controlplane-a-1  | [0;32mINFO 2025-12-14T18:24:47.521022276 129 service extensions started[0m
+edc-controlplane-a-1  | [0;32mINFO 2025-12-14T18:24:47.531508396 Runtime af3059c9-1510-4257-a5b3-01009307effb ready[0m

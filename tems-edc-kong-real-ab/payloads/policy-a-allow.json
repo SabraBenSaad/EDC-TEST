@@ -1,0 +1,10 @@
+{
+  "@context": { "odrl": "http://www.w3.org/ns/odrl/2/" },
+  "@id": "policy-a-allow",
+  "policy": {
+    "@type": "odrl:Set",
+    "permission": [
+      { "action": "use" }
+    ]
+  }
+}

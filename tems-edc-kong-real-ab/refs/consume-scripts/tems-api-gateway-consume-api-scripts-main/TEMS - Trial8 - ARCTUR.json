@@ -1,0 +1,251 @@
+{
+  "v": 10,
+  "id": "cmhovzjrw0g0sfv1kby592i9c",
+  "name": "TEMS - Trial8 - ARCTUR",
+  "folders": [
+    {
+      "v": 10,
+      "id": "cmhovzjsc0g0tfv1k4lss5zg5",
+      "name": "Central Governance",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Obtain Keycloak Token",
+          "method": "POST",
+          "endpoint": "https://governance.tems-dataspace.eu/auth/realms/common/protocol/openid-connect/token",
+          "params": [],
+          "headers": [
+            {
+              "key": "Content-Type",
+              "value": "application/x-www-form-urlencoded",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "preRequestScript": "",
+          "testScript": "pw.env.set(\"CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN\", pw.response.body[\"access_token\"]);",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/x-www-form-urlencoded",
+            "body": "grant_type: password\nclient_id: insert-client-id-here\nclient_secret: insert-client-secret-here\nscope: openid\nusername: insert-username-here\npassword: insert-password-here"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_d885e5d5-e65a-491b-8e4d-9266c3f58ffd"
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdpiaj_6001f249-39ca-47fb-bcfc-7d9381417350"
+    },
+    {
+      "v": 10,
+      "id": "cmhovzjt10g0wfv1knciblmz2",
+      "name": "API Gateway",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Issue API Gateway Token",
+          "method": "POST",
+          "endpoint": "https://prod-trial8-arctur-provider.tems-dataspace.eu/apigateway/temsapigateway/token",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"agreementId\": \"insert_agreementId_here\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_3206860f-57c1-4e6d-8909-f1d5be8b0e1e"
+        },
+        {
+          "v": "16",
+          "name": "Validate API Gateway Token",
+          "method": "POST",
+          "endpoint": "https://prod-trial8-arctur-provider.tems-dataspace.eu/apigateway/temsapigateway/validate",
+          "params": [],
+          "headers": [],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": "application/json",
+            "body": "{\n  \"apiGatewayToken\": \"insert_apiGatewayToken_here\"\n}"
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mgt9cq3o_b2eaf935-eb83-4d84-acbc-987074c60334"
+        }
+      ],
+      "auth": {
+        "authType": "bearer",
+        "token": "<<CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN>>",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdpiaj_26400316-2742-4f3b-acab-2124b4693b79"
+    },
+    {
+      "v": 10,
+      "id": "cmhowslr60g1zfv1kbedetkjy",
+      "name": "ARCTUR - Assets Search",
+      "folders": [],
+      "requests": [
+        {
+          "v": "16",
+          "name": "Assets Search",
+          "method": "GET",
+          "endpoint": "https://prod-trial8-arctur-provider.tems-dataspace.eu/apigateway/api/core/v1/assets/search",
+          "params": [
+            {
+              "key": "query",
+              "value": "test",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "category",
+              "value": "1",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "category",
+              "value": "2",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "historicalPeriod",
+              "value": "3",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "historicalPeriod",
+              "value": "4",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "region",
+              "value": "5",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "region",
+              "value": "6",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "page.page",
+              "value": "1",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "page.pageSize",
+              "value": "20",
+              "active": true,
+              "description": ""
+            },
+            {
+              "key": "portal",
+              "value": "DIKD",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "headers": [
+            {
+              "key": "X-Api-Gateway-Token",
+              "value": "insert_apiGatewayToken_here",
+              "active": true,
+              "description": ""
+            }
+          ],
+          "preRequestScript": "",
+          "testScript": "",
+          "auth": {
+            "authType": "inherit",
+            "authActive": true
+          },
+          "body": {
+            "contentType": null,
+            "body": null
+          },
+          "requestVariables": [],
+          "responses": {},
+          "_ref_id": "req_mhowt2go_a4a5d7d6-d063-4943-9670-b0cf8e1d4182"
+        }
+      ],
+      "auth": {
+        "authType": "inherit",
+        "authActive": true
+      },
+      "headers": [],
+      "variables": [],
+      "_ref_id": "coll_mhtdpiaj_7522fc89-8747-43d7-9e48-0728c7951964"
+    }
+  ],
+  "requests": [],
+  "auth": {
+    "authType": "inherit",
+    "authActive": true
+  },
+  "headers": [],
+  "variables": [
+    {
+      "key": "assetId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "offeringId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "policyId",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "CENTRAL_GOVERNANCE_KEYCLOAK_ACCESS_TOKEN",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    },
+    {
+      "key": "expirationDateTime",
+      "initialValue": "",
+      "currentValue": "",
+      "secret": false
+    }
+  ],
+  "_ref_id": "coll_mhtdpiaj_f6cee2e3-9b9b-468f-860f-872dad690342"
+}

@@ -1,0 +1,52 @@
+edc-controlplane-a-1  | INFO 2025-12-14T16:23:43.432741398 Booting EDC runtime
+edc-controlplane-a-1  | WARNING 2025-12-14T16:23:44.296903901 Configuration file does not exist: /app/configuration.properties. Ignoring.
+edc-controlplane-a-1  | SLF4J(W): No SLF4J providers were found.
+edc-controlplane-a-1  | SLF4J(W): Defaulting to no-operation (NOP) logger implementation
+edc-controlplane-a-1  | SLF4J(W): See https://www.slf4j.org/codes.html#noProviders for further details.
+edc-controlplane-a-1  | INFO 2025-12-14T16:23:51.641736917 HTTPS enforcement it not enabled, please enable it in a production environment
+edc-controlplane-a-1  | INFO 2025-12-14T16:23:53.871091656 HTTPS enforcement it not enabled, please enable it in a production environment
+edc-controlplane-a-1  | WARNING 2025-12-14T16:23:53.901753857 Config value: no setting found for 'edc.hostname', falling back to default value 'localhost'
+edc-controlplane-a-1  | INFO 2025-12-14T16:23:56.813639478 Kafka AdminClient authentication not fully configured. Using basic connection properties only.
+edc-controlplane-a-1  | SEVERE 2025-12-14T16:23:56.988023527 Error booting runtime: java.lang.reflect.InvocationTargetException
+edc-controlplane-a-1  | org.eclipse.edc.boot.system.injection.EdcInjectionException: java.lang.reflect.InvocationTargetException
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.ProviderMethod.invoke(ProviderMethod.java:66)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ServiceProvider.get(ServiceProvider.java:40)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ExtensionLifecycleManager.lambda$bootServiceExtensions$0(ExtensionLifecycleManager.java:59)
+edc-controlplane-a-1  | 	at java.base/java.util.ArrayList.forEach(Unknown Source)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ExtensionLifecycleManager.bootServiceExtensions(ExtensionLifecycleManager.java:59)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.bootExtensions(BaseRuntime.java:162)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.boot(BaseRuntime.java:101)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.main(BaseRuntime.java:79)
+edc-controlplane-a-1  | Caused by: java.lang.reflect.InvocationTargetException
+edc-controlplane-a-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+edc-controlplane-a-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.ProviderMethod.invoke(ProviderMethod.java:61)
+edc-controlplane-a-1  | 	... 7 more
+edc-controlplane-a-1  | Caused by: org.eclipse.edc.spi.EdcException: Mandatory config value missing: 'edc.iam.issuer.id'. This runtime is not operational.
+edc-controlplane-a-1  | 	at org.eclipse.tractusx.edc.core.utils.ConfigUtil.missingMandatoryProperty(ConfigUtil.java:32)
+edc-controlplane-a-1  | 	at org.eclipse.tractusx.edc.common.tokenrefresh.TokenRefreshHandlerExtension.getOwnDid(TokenRefreshHandlerExtension.java:64)
+edc-controlplane-a-1  | 	at org.eclipse.tractusx.edc.common.tokenrefresh.TokenRefreshHandlerExtension.createTokenRefreshHander(TokenRefreshHandlerExtension.java:58)
+edc-controlplane-a-1  | 	... 10 more
+edc-controlplane-a-1  | Exception in thread "main" org.eclipse.edc.spi.EdcException: org.eclipse.edc.boot.system.injection.EdcInjectionException: java.lang.reflect.InvocationTargetException
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.onError(BaseRuntime.java:152)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.boot(BaseRuntime.java:116)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.main(BaseRuntime.java:79)
+edc-controlplane-a-1  | Caused by: org.eclipse.edc.boot.system.injection.EdcInjectionException: java.lang.reflect.InvocationTargetException
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.ProviderMethod.invoke(ProviderMethod.java:66)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ServiceProvider.get(ServiceProvider.java:40)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ExtensionLifecycleManager.lambda$bootServiceExtensions$0(ExtensionLifecycleManager.java:59)
+edc-controlplane-a-1  | 	at java.base/java.util.ArrayList.forEach(Unknown Source)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.lifecycle.ExtensionLifecycleManager.bootServiceExtensions(ExtensionLifecycleManager.java:59)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.bootExtensions(BaseRuntime.java:162)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.runtime.BaseRuntime.boot(BaseRuntime.java:101)
+edc-controlplane-a-1  | 	... 1 more
+edc-controlplane-a-1  | Caused by: java.lang.reflect.InvocationTargetException
+edc-controlplane-a-1  | 	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(Unknown Source)
+edc-controlplane-a-1  | 	at java.base/java.lang.reflect.Method.invoke(Unknown Source)
+edc-controlplane-a-1  | 	at org.eclipse.edc.boot.system.injection.ProviderMethod.invoke(ProviderMethod.java:61)
+edc-controlplane-a-1  | 	... 7 more
+edc-controlplane-a-1  | Caused by: org.eclipse.edc.spi.EdcException: Mandatory config value missing: 'edc.iam.issuer.id'. This runtime is not operational.
+edc-controlplane-a-1  | 	at org.eclipse.tractusx.edc.core.utils.ConfigUtil.missingMandatoryProperty(ConfigUtil.java:32)
+edc-controlplane-a-1  | 	at org.eclipse.tractusx.edc.common.tokenrefresh.TokenRefreshHandlerExtension.getOwnDid(TokenRefreshHandlerExtension.java:64)
+edc-controlplane-a-1  | 	at org.eclipse.tractusx.edc.common.tokenrefresh.TokenRefreshHandlerExtension.createTokenRefreshHander(TokenRefreshHandlerExtension.java:58)
+edc-controlplane-a-1  | 	... 10 more
