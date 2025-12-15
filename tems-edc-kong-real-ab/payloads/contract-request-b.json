@@ -1,0 +1,18 @@
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "edc:ContractRequest",
+  "protocol": "dataspace-protocol-http",
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "counterPartyId": "participant-a",
+  "assetId": "asset-a-1",
+  "policy": {
+    "@type": "odrl:Set",
+    "odrl:permission": [
+      {
+        "odrl:action": "use"
+      }
+    ]
+  }
+}

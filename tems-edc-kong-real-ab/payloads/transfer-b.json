@@ -1,0 +1,13 @@
+{
+  "@context": { "edc": "https://w3id.org/edc/v0.0.1/ns/" },
+  "@type": "TransferRequest",
+  "protocol": "dataspace-protocol-http",
+  "counterPartyId": "participant-a",
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "contractId": "992453a8-8823-4209-b021-7d556a346398",
+  "assetId": "asset-a-1",
+  "dataDestination": {
+    "@type": "DataAddress",
+    "type": "HttpProxy"
+  }
+}

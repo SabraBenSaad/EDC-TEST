@@ -1,0 +1,15 @@
+{
+  "@context": { "edc": "https://w3id.org/edc/v0.0.1/ns/" },
+  "@id": "contractdef-a-1-fixed",
+  "@type": "ContractDefinition",
+  "accessPolicyId": "policydef-a-allow",
+  "contractPolicyId": "policydef-a-allow",
+  "assetsSelector": [
+    {
+      "@type": "Criterion",
+      "operandLeft": "id",
+      "operator": "=",
+      "operandRight": "asset-a-1"
+    }
+  ]
+}

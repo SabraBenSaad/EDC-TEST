@@ -1,4 +1,13 @@
 {
-  "counterPartyAddress": "http://edc-controlplane-a:8188/protocol",
-  "protocol": "dataspace-protocol-http"
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "counterPartyId": "participant-a",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "@type": "QuerySpec",
+    "offset": 0,
+    "limit": 50
+  }
 }

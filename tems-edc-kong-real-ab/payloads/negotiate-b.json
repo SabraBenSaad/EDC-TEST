@@ -1,0 +1,27 @@
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@type": "ContractRequest",
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "counterPartyId": "participant-a",
+  "protocol": "dataspace-protocol-http",
+  "policy": {
+    "@id": "Y29udHJhY3RkZWYtYS0xLWZpeGVk:YXNzZXQtYS0x:ZjUzYmFmMTYtZDliZS00YmE5LTlmYWItZmJjZGMxNDkwNTIy",
+    "@type": "odrl:Offer",
+    "odrl:permission": {
+      "odrl:action": {
+        "@id": "USE"
+      }
+    },
+    "odrl:prohibition": [],
+    "odrl:obligation": [],
+    "odrl:assigner": {
+      "@id": "participant-a"
+    },
+    "odrl:target": {
+      "@id": "asset-a-1"
+    }
+  }
+}
