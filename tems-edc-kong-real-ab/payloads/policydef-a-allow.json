@@ -1,0 +1,16 @@
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@id": "policydef-a-allow",
+  "@type": "edc:PolicyDefinition",
+  "edc:policy": {
+    "@type": "odrl:Set",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE"
+      }
+    ]
+  }
+}

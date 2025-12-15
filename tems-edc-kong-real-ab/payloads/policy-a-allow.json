@@ -1,10 +1,12 @@
 {
-  "@context": { "odrl": "http://www.w3.org/ns/odrl/2/" },
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
   "@id": "policy-a-allow",
-  "policy": {
-    "@type": "odrl:Set",
-    "permission": [
-      { "action": "use" }
-    ]
-  }
+  "@type": "set",
+  "edc:permission": [
+    {
+      "edc:action": "USE"
+    }
+  ]
 }
