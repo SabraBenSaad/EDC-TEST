@@ -1,0 +1,200 @@
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "asset": {
+    "@id": "asset-a-1",
+    "properties": {
+      "name": "Demo Asset A",
+      "contenttype": "text/plain"
+    }
+  },
+  "dataAddress": {
+    "type": "HttpData",
+    "properties": {
+      "baseUrl": "https://raw.githubusercontent.com/eclipse-edc/Connector/main/README.md"
+    }
+  }
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "edc:AssetCreateRequest",
+  "asset": {
+    "@id": "asset-a-1",
+    "properties": {
+      "name": "Demo Asset A",
+      "contenttype": "text/plain"
+    }
+  },
+  "dataAddress": {
+    "type": "HttpData",
+    "properties": {
+      "baseUrl": "https://raw.githubusercontent.com/eclipse-edc/Connector/main/README.md"
+    }
+  }
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "counterPartyId": "participant-a",
+  "protocol": "dataspace-protocol-http",
+  "querySpec": {
+    "@type": "QuerySpec",
+    "offset": 0,
+    "limit": 50
+  }
+}
+{"@id":"644197d6-7db9-47b4-b417-eee60f169e05","@type":"dcat:Catalog","dcat:dataset":{"@id":"asset-a-1","@type":"dcat:Dataset","odrl:hasPolicy":{"@id":"Y29udHJhY3RkZWYtYS0xLWZpeGVk:YXNzZXQtYS0x:ZWIwMTFlOTAtMDFhMy00ODU5LWFiOWEtMjcyM2U4Y2I0YWMy","@type":"odrl:Offer","odrl:permission":{"odrl:action":{"@id":"USE"}},"odrl:prohibition":[],"odrl:obligation":[]},"dcat:distribution":{"@type":"dcat:Distribution","dct:format":{"@id":"KafkaBroker-PULL"},"dcat:accessService":{"@id":"44efc418-c116-45e3-a18c-51ecbccb9f96","@type":"dcat:DataService","dcat:endpointDescription":"dspace:connector","dcat:endpointUrl":"http://api-gateway-a:8080/protocol","dcat:endpointURL":"http://api-gateway-a:8080/protocol"}},"name":"Demo Asset A","id":"asset-a-1","contenttype":"text/plain"},"dcat:catalog":[],"dcat:distribution":[],"dcat:service":{"@id":"44efc418-c116-45e3-a18c-51ecbccb9f96","@type":"dcat:DataService","dcat:endpointDescription":"dspace:connector","dcat:endpointUrl":"http://api-gateway-a:8080/protocol","dcat:endpointURL":"http://api-gateway-a:8080/protocol/"},"dspace:participantId":"participant-a","@context":{"tx":"https://w3id.org/tractusx/v0.0.1/ns/","tx-auth":"https://w3id.org/tractusx/auth/","cx-policy":"https://w3id.org/catenax/policy/","dcat":"http://www.w3.org/ns/dcat#","dct":"http://purl.org/dc/terms/","odrl":"http://www.w3.org/ns/odrl/2/","dspace":"https://w3id.org/dspace/v0.8/","@vocab":"https://w3id.org/edc/v0.0.1/ns/","edc":"https://w3id.org/edc/v0.0.1/ns/"}}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@type": "edc:ContractRequest",
+  "protocol": "dataspace-protocol-http",
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "counterPartyId": "participant-a",
+  "assetId": "asset-a-1",
+  "policy": {
+    "@type": "odrl:Set",
+    "odrl:permission": [
+      {
+        "odrl:action": "use"
+      }
+    ]
+  }
+}
+{
+  "@context": { "edc": "https://w3id.org/edc/v0.0.1/ns/" },
+  "@id": "contractdef-a-1-fixed",
+  "@type": "ContractDefinition",
+  "accessPolicyId": "policydef-a-allow",
+  "contractPolicyId": "policydef-a-allow",
+  "assetsSelector": [
+    {
+      "@type": "Criterion",
+      "operandLeft": "id",
+      "operator": "=",
+      "operandRight": "asset-a-1"
+    }
+  ]
+}
+{
+  "@id": "cd-a-1",
+  "accessPolicyId": "policy-a-allow",
+  "contractPolicyId": "policy-a-allow",
+  "assetsSelector": [
+    {
+      "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+      "operator": "=",
+      "operandRight": "asset-a-1"
+    }
+  ]
+}
+{
+  "@context": { "edc": "https://w3id.org/edc/v0.0.1/ns/" },
+  "@id": "contractdef-a-1",
+  "@type": "ContractDefinition",
+  "accessPolicyId": "policydef-a-allow",
+  "contractPolicyId": "policydef-a-allow",
+  "assetsSelector": {
+    "@type": "Criterion",
+    "operandLeft": "https://w3id.org/edc/v0.0.1/ns/id",
+    "operator": "=",
+    "operandRight": "asset-a-1"
+  }
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@id": "contractdef-a-1",
+  "@type": "edc:ContractDefinition",
+  "edc:accessPolicyId": "policydef-a-allow",
+  "edc:contractPolicyId": "policydef-a-allow",
+  "edc:assetsSelector": [
+    {
+      "@type": "edc:Criterion",
+      "edc:operandLeft": "edc:id",
+      "edc:operator": "=",
+      "edc:operandRight": "asset-a-1"
+    }
+  ]
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@id": "asset-a-1",
+  "edc:properties": {
+    "edc:name": "Demo Asset A",
+    "edc:contenttype": "text/plain"
+  },
+  "edc:dataAddress": {
+    "@type": "edc:DataAddress",
+    "edc:type": "HttpData",
+    "edc:properties": {
+      "edc:baseUrl": "https://raw.githubusercontent.com/eclipse-edc/Connector/main/README.md"
+    }
+  }
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@type": "ContractRequest",
+  "counterPartyAddress": "http://api-gateway-a:8080/protocol/",
+  "counterPartyId": "participant-a",
+  "protocol": "dataspace-protocol-http",
+  "policy": {
+    "@id": "Y29udHJhY3RkZWYtYS0xLWZpeGVk:YXNzZXQtYS0x:ZjUzYmFmMTYtZDliZS00YmE5LTlmYWItZmJjZGMxNDkwNTIy",
+    "@type": "odrl:Offer",
+    "odrl:permission": {
+      "odrl:action": {
+        "@id": "USE"
+      }
+    },
+    "odrl:prohibition": [],
+    "odrl:obligation": [],
+    "odrl:assigner": {
+      "@id": "participant-a"
+    },
+    "odrl:target": {
+      "@id": "asset-a-1"
+    }
+  }
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/"
+  },
+  "@id": "policy-a-allow",
+  "@type": "set",
+  "edc:permission": [
+    {
+      "edc:action": "USE"
+    }
+  ]
+}
+{
+  "@context": {
+    "edc": "https://w3id.org/edc/v0.0.1/ns/",
+    "odrl": "http://www.w3.org/ns/odrl/2/"
+  },
+  "@id": "policydef-a-allow",
+  "@type": "edc:PolicyDefinition",
+  "edc:policy": {
+    "@type": "odrl:Set",
+    "odrl:permission": [
+      {
+        "odrl:action": "USE"
+      }
+    ]
+  }
+}
+{
+  "@context": { "edc": "https://w3id.org/edc/v0.0.1/ns/" },

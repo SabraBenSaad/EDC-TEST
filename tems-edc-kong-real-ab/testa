@@ -1,0 +1,37 @@
+* Host localhost:8081 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:8081...
+* Connected to localhost (::1) port 8081
+> GET /management/v3/assets HTTP/1.1
+> Host: localhost:8081
+> User-Agent: curl/8.5.0
+> Accept: */*
+> X-Api-Key: 123456
+> 
+< HTTP/1.1 405 Method Not Allowed
+< Server: nginx/1.29.4
+< Date: Tue, 16 Dec 2025 12:30:48 GMT
+< Content-Type: text/html;charset=iso-8859-1
+< Content-Length: 417
+< Connection: keep-alive
+< Allow: POST,OPTIONS,PUT
+< Cache-Control: must-revalidate,no-cache,no-store
+< 
+{ [417 bytes data]
+* Connection #0 to host localhost left intact
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html;charset=ISO-8859-1"/>
+<title>Error 405 Method Not Allowed</title>
+</head>
+<body><h2>HTTP ERROR 405 Method Not Allowed</h2>
+<table>
+<tr><th>URI:</th><td>/management/v3/assets</td></tr>
+<tr><th>STATUS:</th><td>405</td></tr>
+<tr><th>MESSAGE:</th><td>Method Not Allowed</td></tr>
+<tr><th>SERVLET:</th><td>EDC-management</td></tr>
+</table>
+
+</body>
+</html>
